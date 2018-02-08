@@ -148,7 +148,7 @@ if __name__ == "__main__":
   tf.logging.set_verbosity(tf.logging.WARN)
 
   results = []
-  classes = {'anger':0, 'happiness_sliced':1, 'neutral_sliced':2, 'sadness':3, 'suprise':4}
+  classes = {'anger':0, 'happiness sliced':1, 'neutral sliced':2, 'sadness':3, 'suprise':4}
   dir = '/mnt/datasets/test_images/'
 
   cnt = 0
