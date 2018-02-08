@@ -164,5 +164,5 @@ if __name__ == "__main__":
     print('cnt', cnt, 'result', result)
 
   print(results[0:10])
-  with open('results.json', 'r') as f:
+  with open('results.json', 'w') as f:
     json.dump(results, f)
