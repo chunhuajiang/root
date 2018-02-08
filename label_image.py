@@ -134,9 +134,13 @@ def _main(file_name):
 
   top_k = results.argsort()[-5:][::-1]
   labels = load_labels(label_file)
-  return labels[0]
   for i in top_k:
     print(labels[i], results[i])
+
+  i = np.argmax(results)
+  print(labels[i])
+  return labels[i]
+
 
 import os
 import json
