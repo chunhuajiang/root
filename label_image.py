@@ -23,8 +23,6 @@ import sys
 import numpy as np
 import tensorflow as tf
 
-print('++++++++++ set log to error')
-tf.logging.set_verbosity(tf.logging.ERROR)
 
 def load_graph(model_file):
   graph = tf.Graph()
@@ -143,6 +141,8 @@ def _main(file_name):
 import os
 import json
 if __name__ == "__main__":
+  tf.logging.set_verbosity(tf.logging.WARN)
+
   results = []
   classes = {'anger':0, 'happiness':1, 'neutral':2, 'sadness':3, 'surprise':4}
   dir = '/mnt/datasets/test_images/'
