@@ -23,6 +23,7 @@ import sys
 import numpy as np
 import tensorflow as tf
 
+tf.logging.set_verbosity(tf.logging.WARN)
 
 def load_graph(model_file):
   graph = tf.Graph()
