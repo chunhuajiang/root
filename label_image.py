@@ -140,5 +140,6 @@ def _main(file_name):
 
 import os
 if __name__ == "__main__":
-  for filename in os.listdir('/mnt/datasets/test_images/'):
-    _main(filename)
+  dir = '/mnt/datasets/test_images/'
+  for filename in os.listdir(dir):
+    _main(os.path.join(dir, filename))
