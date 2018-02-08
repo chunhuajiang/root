@@ -143,6 +143,7 @@ def _main(file_name):
 import os
 import json
 if __name__ == "__main__":
+  print('>>>>>>>>>>>>>>')
   results = []
   classes = {'anger':0, 'happiness':1, 'neutral':2, 'sadness':3, 'surprise':4}
   dir = '/mnt/datasets/test_images/'
