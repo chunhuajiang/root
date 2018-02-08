@@ -134,11 +134,11 @@ def _main(file_name):
 
   top_k = results.argsort()[-5:][::-1]
   labels = load_labels(label_file)
-  for i in top_k:
-    print(labels[i], results[i])
+#  for i in top_k:
+#    print(labels[i], results[i])
 
   i = np.argmax(results)
-  print('i', labels[i])
+#  print('i', labels[i])
   return labels[i]
 
 
@@ -148,7 +148,7 @@ if __name__ == "__main__":
   tf.logging.set_verbosity(tf.logging.WARN)
 
   results = []
-  classes = {'anger':0, 'happiness':1, 'neutral':2, 'sadness':3, 'suprise':4}
+  classes = {'anger':0, 'happiness_sliced':1, 'neutral_sliced':2, 'sadness':3, 'suprise':4}
   dir = '/mnt/datasets/test_images/'
 
   cnt = 0
