@@ -142,4 +142,5 @@ import os
 if __name__ == "__main__":
   dir = '/mnt/datasets/test_images/'
   for filename in os.listdir(dir):
-    _main(os.path.join(dir, filename))
+    filepath = os.path.join(dir, filename)
+    _main(filepath)
