@@ -149,7 +149,7 @@ if __name__ == "__main__":
     filepath = os.path.join(dir, filename)
     label = _main(filepath)
     result = {}
-    result['label'] = classes['label']
+    result['label'] = classes[label]
     result['filename'] = filename
     results.append(result)
 
