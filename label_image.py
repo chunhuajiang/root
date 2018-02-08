@@ -57,6 +57,7 @@ def read_tensor_from_image_file(file_name,
         file_reader, channels=3, name="jpeg_reader")
   float_caster = tf.cast(image_reader, tf.float32)
   dims_expander = tf.expand_dims(float_caster, 0)
+  print(dims_expander)
   resized = tf.image.resize_bilinear(dims_expander, [input_height, input_width])
   normalized = tf.divide(tf.subtract(resized, [input_mean]), [input_std])
   sess = tf.Session()
@@ -72,9 +73,7 @@ def load_labels(label_file):
     label.append(l.rstrip())
   return label
 
-
-if __name__ == "__main__":
-  file_name = "tensorflow/examples/label_image/data/grace_hopper.jpg"
+def _main(file_name):
   model_file = \
     "tensorflow/examples/label_image/data/inception_v3_2016_08_28_frozen.pb"
   label_file = "tensorflow/examples/label_image/data/imagenet_slim_labels.txt"
@@ -99,8 +98,6 @@ if __name__ == "__main__":
 
   if args.graph:
     model_file = args.graph
-  if args.image:
-    file_name = args.image
   if args.labels:
     label_file = args.labels
   if args.input_height:
@@ -123,6 +120,7 @@ if __name__ == "__main__":
       input_width=input_width,
       input_mean=input_mean,
       input_std=input_std)
+  # print(t)
 
   input_name = "import/" + input_layer
   output_name = "import/" + output_layer
@@ -139,3 +137,8 @@ if __name__ == "__main__":
   labels = load_labels(label_file)
   for i in top_k:
     print(labels[i], results[i])
+
+import os
+if __name__ == "__main__":
+  for filename in os.listdir('/mnt/datasets/test_images/'):
+    _main(filename)
