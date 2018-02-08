@@ -146,6 +146,13 @@ if __name__ == "__main__":
   results = []
   classes = {'anger':0, 'happiness':1, 'neutral':2, 'sadness':3, 'surprise':4}
   dir = '/mnt/datasets/test_images/'
+
+  cnt = 0
+  for file in os.listdir(dir):
+    cnt += 1
+  print('>>>>>>>>>>>>>>>>>Cnt:', cnt)
+
+  cnt = 0
   for filename in os.listdir(dir):
     filepath = os.path.join(dir, filename)
     label = _main(filepath)
@@ -153,6 +160,8 @@ if __name__ == "__main__":
     result['label'] = classes[label]
     result['filename'] = filename
     results.append(result)
+    cnt += 1
+    print('cnt', cnt, 'result', result)
 
   print(results[0:10])
   with open('results.json', 'r') as f:
