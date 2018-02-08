@@ -135,6 +135,7 @@ def _main(file_name):
 
   top_k = results.argsort()[-5:][::-1]
   labels = load_labels(label_file)
+  print('---------> ', labels[0])
   return labels[0]
   for i in top_k:
     print(labels[i], results[i])
@@ -149,6 +150,7 @@ if __name__ == "__main__":
     filepath = os.path.join(dir, filename)
     label = _main(filepath)
     result = {}
+    print(label)
     result['label'] = classes[label]
     result['filename'] = filename
     results.append(result)
