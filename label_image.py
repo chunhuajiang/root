@@ -135,12 +135,24 @@ def _main(file_name):
 
   top_k = results.argsort()[-5:][::-1]
   labels = load_labels(label_file)
+  return labels[0]
   for i in top_k:
     print(labels[i], results[i])
 
 import os
+import json
 if __name__ == "__main__":
+  results = []
+  classes = {'anger':0, 'happiness':1, 'neutral':2, 'sadness':3, 'surprise':4}
   dir = '/mnt/datasets/test_images/'
   for filename in os.listdir(dir):
     filepath = os.path.join(dir, filename)
-    _main(filepath)
+    label = _main(filepath)
+    result = {}
+    result['label'] = classes['label']
+    result['filename'] = filename
+    results.append(result)
+
+  print(results[0:10])
+  with open('results.json', 'r') as f:
+    json.dump(results, f)
