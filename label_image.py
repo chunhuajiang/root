@@ -138,7 +138,7 @@ def _main(file_name):
     print(labels[i], results[i])
 
   i = np.argmax(results)
-  print(labels[i])
+  print('i', labels[i])
   return labels[i]
 
 
@@ -148,7 +148,7 @@ if __name__ == "__main__":
   tf.logging.set_verbosity(tf.logging.WARN)
 
   results = []
-  classes = {'anger':0, 'happiness':1, 'neutral':2, 'sadness':3, 'surprise':4}
+  classes = {'anger':0, 'happiness':1, 'neutral':2, 'sadness':3, 'suprise':4}
   dir = '/mnt/datasets/test_images/'
 
   cnt = 0
