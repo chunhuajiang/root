@@ -57,7 +57,6 @@ def read_tensor_from_image_file(file_name,
         file_reader, channels=3, name="jpeg_reader")
   float_caster = tf.cast(image_reader, tf.float32)
   dims_expander = tf.expand_dims(float_caster, 0)
-  print(dims_expander)
   resized = tf.image.resize_bilinear(dims_expander, [input_height, input_width])
   normalized = tf.divide(tf.subtract(resized, [input_mean]), [input_std])
   sess = tf.Session()
@@ -135,7 +134,6 @@ def _main(file_name):
 
   top_k = results.argsort()[-5:][::-1]
   labels = load_labels(label_file)
-  print('---------> ', labels[0])
   return labels[0]
   for i in top_k:
     print(labels[i], results[i])
@@ -143,7 +141,6 @@ def _main(file_name):
 import os
 import json
 if __name__ == "__main__":
-  print('>>>>>>>>>>>>>>')
   results = []
   classes = {'anger':0, 'happiness':1, 'neutral':2, 'sadness':3, 'surprise':4}
   dir = '/mnt/datasets/test_images/'
@@ -151,7 +148,6 @@ if __name__ == "__main__":
     filepath = os.path.join(dir, filename)
     label = _main(filepath)
     result = {}
-    print('----------label:', label)
     result['label'] = classes[label]
     result['filename'] = filename
     results.append(result)
