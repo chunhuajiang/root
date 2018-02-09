@@ -149,7 +149,7 @@ if __name__ == "__main__":
 
   results = []
   classes = {'anger':0, 'happiness sliced':1, 'neutral sliced':2, 'sadness':3, 'suprise':4}
-  dir = '/mnt/datasets/test_images/'
+  dir = 'test_face'
 
   cnt = 0
   for file in os.listdir(dir):
